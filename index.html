@@ -60,17 +60,32 @@
     }
     a { color: #000; }
     .small { font-size: 13px; color: #444; }
+
+    /* Styled collapsible */
     details {
         margin-top: 10px;
         margin-bottom: 20px;
-        background: #eef;
-        padding: 10px;
+        background: #eef5ff;
+        padding: 10px 15px;
         border-radius: 5px;
+        border: 1px solid #cce0ff;
+        transition: background 0.3s;
     }
     summary {
         font-weight: bold;
         cursor: pointer;
         outline: none;
+        position: relative;
+        padding-left: 25px;
+    }
+    summary::before {
+        content: "\25B6"; /* right-pointing arrow */
+        position: absolute;
+        left: 0;
+        transition: transform 0.3s ease;
+    }
+    details[open] summary::before {
+        transform: rotate(90deg); /* points down when open */
     }
     details img {
         max-width: 100%;
@@ -133,7 +148,6 @@
         <details>
             <summary>About the Project</summary>
             <p>Emydex modular software suite for meat, fish, and food processing plants (Traceability, Quality & Compliance, Recipe Formulation, and BI modules).</p>
-            <!-- Example image placeholder -->
             <!-- <img src="emydex-project.png" alt="Emydex Project Screenshot"> -->
         </details>
 
